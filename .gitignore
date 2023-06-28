@@ -3,6 +3,16 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Non-code directories
+Library/
+Physics/
+Prefabs/
+ProjectSettings/
+Scenes/
+TextMesh Pro/
+Textures/
+UserSettings/
+
 # User-specific files
 *.rsuser
 *.suo
