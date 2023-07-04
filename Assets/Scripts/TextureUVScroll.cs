@@ -18,6 +18,8 @@ public class TextureUVScroll : MonoBehaviour
         BaseSpeed = ScrollSpeed;
         movePosition = Vector3.zero;
         globalScale = transform.lossyScale;
+
+        this.enabled = false;
     }
 
     // Update is called once per frame

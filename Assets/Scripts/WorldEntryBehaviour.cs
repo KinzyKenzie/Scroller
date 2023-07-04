@@ -37,12 +37,11 @@ public class WorldEntryBehaviour : MonoBehaviour
 
     private int slicesMin, slicesMax;
     private float waitTimeStart;
-    //private float debugTimeStart;
 
     // Start is called before the first frame update
     void Start() {
         slicesMin = 2;
-        slicesMax = 14;
+        slicesMax = 8;
         waitTimeStart = 0.0f;
     }
 
@@ -56,7 +55,6 @@ public class WorldEntryBehaviour : MonoBehaviour
             case WaitStage.Colliding:
                 if( !Collider.IsTouchingLayers() ) {
                     waitTimeStart = Time.realtimeSinceStartup;
-                    //debugTimeStart = Time.realtimeSinceStartup;
                     waitStage++;
                 }
                 break;
@@ -114,10 +112,11 @@ public class WorldEntryBehaviour : MonoBehaviour
             previous = Instantiate( PrefabsSlice[ type[ i ] ], parent );
             previous.transform.position = position;
 
+            // Decides whether to spawn obstacles and flip textures
             float rand2 = Random.Range( 0, 1.0f );
 
             // Disgusting 2.0
-            if( rand2 <= 0.1f && rocksSpawned < 1 && i > 4 && i < length - 2 ) {
+            if( rand2 <= 0.2f && rocksSpawned < 1 && i > 4 && i < length - 2 ) {
                 GameObject tempgo = Instantiate( PrefabsObstacle[ 0 ], parent );
                 tempgo.transform.position = position + new Vector3( 0, SPRITE_SIZE, 0.1f );
                 rocksSpawned++;
